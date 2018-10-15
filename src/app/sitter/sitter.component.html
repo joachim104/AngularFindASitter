@@ -1,0 +1,15 @@
+<mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ sitter.firstname }} {{ sitter.lastname}}</mat-card-title>
+    <mat-card-subtitle>{{ sitter.gender }}</mat-card-subtitle>
+</mat-card-header>
+<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+<mat-card-content>
+    <p>
+        My hourly wage is: {{sitter.hourlyWage}}
+    </p>
+</mat-card-content>
+<mat-card-actions>
+    <button mat-button (click)="onEditClick()">EDIT</button>
+    <button mat-button>DELETE</button>
+</mat-card-actions>

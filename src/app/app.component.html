@@ -1,0 +1,64 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}
+  </h1>
+  <img class="sitter-picture" width="200" src="http://www.stay-a-stay-at-home-mom.com/image-files/sitter-city-10.jpg">
+</div>
+
+
+
+<div class="nav-bar-buttons">
+  <button type="button" id="menuHome"class="btn btn-outline-dark" routerLink="home">Home</button>
+  <button type="button" id="menuContact"class="btn btn-outline-dark" routerLink="contact">Contact</button>
+  <button type="button" id="menuLogin" class="btn btn-outline-dark" routerLink="login">Login</button>
+  <button type="button" id="menuRegister" class="btn btn-outline-dark" routerLink="register">Register</button>
+</div>
+
+
+  <router-outlet></router-outlet>
+
+  <!-- her putter vi router componenten ind på vores html side -->
+<!-- <app-sitters-list></app-sitters-list> -->
+
+<!-- <div *ngIf="isBaby">
+  Baby is here!
+</div>
+
+<div *ngIf="type === 'Baby'">
+  Baby 2
+</div>
+<div *ngIf="type === 'Parent'">
+  Parent
+</div>
+<div *ngIf="type === 'Sitter'">
+  Sitter
+</div>
+
+
+<h1>Register</h1>
+
+<button (click)="onClickSitter()">View Sitter</button>
+<button (click)="onClickBaby()">View Baby</button>
+
+<button (click)="onClick('Baby')">View Baby2</button>
+<button (click)="onClick('Parent')">View Parent</button>
+<button (click)="onClick('Sitter')">View Sitter2</button>
+
+
+
+
+<app-login></app-login>
+
+<h1>Ændre noget</h1>
+Nu ændrer jeg noget!
+
+
+ -->
