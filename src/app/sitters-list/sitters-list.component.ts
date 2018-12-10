@@ -29,7 +29,7 @@ export class SittersListComponent implements OnInit {
       console.log("mit data:", myData);
 
 
-      // this.sitters.push(myData);
+      this.sitters = myData
 
       // let sitter: Sitter;
       // var stringArray = JSON.stringify(myData);
