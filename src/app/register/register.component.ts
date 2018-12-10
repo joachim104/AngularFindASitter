@@ -5,7 +5,7 @@ import { TempDataService } from '../temp-data.service';
 import { FormsModule } from '@angular/forms';
 import { Sitter } from '../entities/sitter';
 import { Baby } from '../entities/baby';
-import { SittersActions } from '../sitters-list/sitters.actions';
+import { SittersActions } from '../sitters-list/sitters.actions'; 
 import { NgRedux } from '@angular-redux/store';
 import { IAppState, SittersState } from '../store';
 
@@ -62,12 +62,11 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
 
-    console.log(this.registerBabyForm);
     let sitter = this.registerSitterForm.value as Sitter;
     let baby = this.registerBabyForm.value as Baby;
 
     if (this.registerSitterForm.value.username != "") {
-      this.tempData.addSitter(this.registerSitterForm.value);
+      this.sittersActions.createSitter(sitter);
       this.router.navigate(["/login"]);
     }
     else {
@@ -76,11 +75,5 @@ export class RegisterComponent implements OnInit {
       // herefter navigere 
       this.router.navigate(["/login"]);
     }
-
-
-    console.log(this.tempData.babies);
-    console.log(this.tempData.sitters);
-
   }
-
 }

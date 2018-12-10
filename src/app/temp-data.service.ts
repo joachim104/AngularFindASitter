@@ -14,8 +14,11 @@ export class TempDataService {
   babies: Baby[] = [
     {username: "fkgdmn", password: "gren123", firstname: "fredrik", gender: "male", age: "24", specialNeeds: "han skal sove kl. 20", address: "amagerbrogade", zipCode: "2300", city: "købebhavn"}
   ];
- 
 
+  public static genInitialTestState() {
+    
+    
+  }
 
   constructor() { }
 

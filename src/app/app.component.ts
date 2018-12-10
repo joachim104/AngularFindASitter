@@ -21,17 +21,8 @@ export class AppComponent {
     this.isBaby = true;
   }
 
-
   onClick(value: String) {
     this.type = value;
   }
-  // onClickParent() {
-  //   this.type = 'Parent';
-  // }
-  // onClickSitter2() {
-  //   this.type = 'Sitter';
-  // }
-
-
 
 }

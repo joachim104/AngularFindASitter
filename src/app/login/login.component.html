@@ -1,24 +1,24 @@
 <div class="login-form">
-    <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
-        <p>
-          Username
-        </p>
-        <input type="text" formControlName="username" id="username">
-        <div *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors?.required">
-          Username must be filled out
-        </div>
-        <div *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.errors?.minlength">
-          Username must be 5 characters
-        </div>
-        <p>
-          Password
-        </p>
-        <input type="password" formControlName="password" id="password">
-        <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required">
-          Password must be filled out
-        </div>
-      
-        <br />
-        <button class="knap" id="btnLogin">Login</button>
-      </form>
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+    <p>
+      Username
+    </p>
+    <input matInput type="text" formControlName="username" id="username">
+    <div *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors?.required">
+      Username must be filled out
+    </div>
+    <div *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.errors?.minlength">
+      Username must be 5 characters
+    </div>
+    <p>
+      Password
+    </p>
+    <input type="password" formControlName="password" id="password">
+    <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required">
+      Password must be filled out
+    </div>
+
+    <br />
+    <button mat-raised-button color="primary">Login</button>
+  </form>
 </div>

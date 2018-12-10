@@ -1,3 +1,13 @@
 .nav-bar-buttons{
     text-align: center;
 }
+
+h1 {
+    font-family: 'Inconsolata', monospace;
+    border-bottom: solid 5px black;
+    font-size: 45px;
+}
+
+#menuHome, #menuLogin, #menuRegister {
+    font-size: 18px;
+}

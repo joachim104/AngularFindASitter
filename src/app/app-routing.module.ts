@@ -9,15 +9,15 @@ import { PortalComponent } from './portal/portal.component';
 import { FindABabyComponent } from './portal/find-a-baby/find-a-baby.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SittersListComponent } from './sitters-list/sitters-list.component';
-
+import { EditSitterComponent } from './edit-sitter/edit-sitter.component';
+ 
 const routes: Routes = [
       
   
   { path: "portal", component: PortalComponent, canActivate: [AuthGuard], children:
       [
         { path: "findasitter", component: SittersListComponent },
-        { path: "findababy", component: FindABabyComponent },
-      
+        { path: "findababy", component: FindABabyComponent },  
       ]
   },
 
@@ -25,12 +25,11 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
   { path: "home", component: HomeComponent },
+  { path: "edit-sitter", component: EditSitterComponent},
 
   { path: '**', component: PageNotFoundComponent },
 ];
 
-// path:"portal",
-// loadChildren:"portal"
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

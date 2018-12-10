@@ -1,22 +1,8 @@
-<div *ngFor="let sitter of sitters">
-    <mat-card class="example-card">
-        <app-sitter [sitter]="sitter" (sitterEditClicked)="onSitterEditClicked($event)">>
-        </app-sitter>
-    </mat-card>
+<div class="card-container">
+    <div *ngFor="let sitter of sitters">
+        <mat-card class="example-card">
+            <app-sitter [sitter]="sitter" (sitterDeleteClicked)="onSitterDeleteClicked($event)" (sitterEditClicked)="onSitterEditClicked($event)">>
+            </app-sitter>
+        </mat-card>
+    </div>
 </div>
-
-
-
-
-
-
-
-<!-- <app-sitter-component></app-sitter-component> -->
-
-
-
-<!-- <div class="card-container">
-    <mat-card class="example-card" *ngFor="let sitter of tempData.sitters">
-        <app-sitter-component></app-sitter-component>
-    </mat-card>
-</div> -->

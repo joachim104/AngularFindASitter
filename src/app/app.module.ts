@@ -1,10 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
@@ -17,11 +15,11 @@ import { PortalComponent } from './portal/portal.component';
 import { FindABabyComponent } from './portal/find-a-baby/find-a-baby.component';
 import { SittersListComponent } from './sitters-list/sitters-list.component';
 import { FormsModule } from '@angular/forms';
-
 import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store';
 import { IAppState } from './store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { rootReducer } from './store'; // Added this to get the root reducer
+import { HttpClientModule }    from '@angular/common/http';
 
 import {
   MatButtonModule,
@@ -36,11 +34,7 @@ import {
 import { MatSelectModule } from '@angular/material/select';
 import { SitterComponent } from './sitter/sitter.component';
 import { SittersActions } from './sitters-list/sitters.actions';
-
-
-
-
-
+import { EditSitterComponent } from './edit-sitter/edit-sitter.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +48,7 @@ import { SittersActions } from './sitters-list/sitters.actions';
     FindABabyComponent,
     SittersListComponent,
     SitterComponent,
+    EditSitterComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,7 +63,9 @@ import { SittersActions } from './sitters-list/sitters.actions';
     MatButtonModule,
     MatRadioModule,
     FormsModule,
-    NgReduxModule, NgReduxRouterModule.forRoot()
+    NgReduxModule,
+    HttpClientModule,
+    NgReduxRouterModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -81,8 +78,7 @@ export class AppModule {
     private devTool: DevToolsExtension,
     private ngReduxRouter: NgReduxRouter, ) {
 
-    this.ngRedux.configureStore(
-      rootReducer, {});
+    this.ngRedux.configureStore(rootReducer, {}, [],[ devTool.isEnabled() ? devTool.enhancer() : f => f]);
 
     ngReduxRouter.initialize(/* args */);
   }
