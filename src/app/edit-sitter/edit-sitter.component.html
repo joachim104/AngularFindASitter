@@ -1,4 +1,43 @@
-<div class="edit-form">
+<div class="container">
+
+  <form novalidate [formGroup]="editSitterForm" (submit)="onSubmit(editSitterForm)">
+      <div class="inputFieldsDiv">
+        <h3>Edit Babysitter</h3>
+        <hr>
+        <br>
+        <div class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" id="username" formControlName="username" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input type="password" matInput placeholder="Password" id="password" formControlName="password" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Firstname" id="firstname" formControlName="firstname" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Lastname" id="lastname" formControlName="lastname" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Age" id="age" formControlName="age" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Gender" id="gender" formControlName="gender" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="City" id="city" formControlName="city" required>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Hourly Wage" id="hourly-wage" formControlName="hourlyWage" required>
+          </mat-form-field>
+        </div>
+        <br>
+        <button mat-raised-button color="primary" type="submit" id="editSitter">Edit Sitter</button>
+      </div>
+    </form>
+</div>
+
+<!-- <div class="edit-form">
   <form action="">
     <p>Username</p>
     <input type="text">
@@ -20,4 +59,4 @@
     <br />
     <button class="btn" mat-raised-button color="primary">Save</button>
   </form>
-</div>
+</div> -->
