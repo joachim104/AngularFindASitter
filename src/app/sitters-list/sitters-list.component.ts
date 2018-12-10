@@ -26,28 +26,28 @@ export class SittersListComponent implements OnInit {
     // man skal subsribe til resultatet ellers så kalder den ikke api´et.
     this.apiService.getAllSitters().subscribe((responseFromApi: any[]) => {
       const myData = responseFromApi.filter(x => x.customerId === "js")
-      console.log("mit data:", myData);
 
 
-      // this.sitters.push(myData);
+      this.sitters = myData;
+
+    
 
       // let sitter: Sitter;
       // var stringArray = JSON.stringify(myData);
       // var array2 = JSON.parse(myData);
-
-
 
       // this.sitters.push(myData);
     });
   }
 
   onSitterEditClicked(sitter: Sitter) {
-    console.log("someone clicked EDIT this sitter", sitter);
+    console.log("someone clicked EDIT this sitter: ", sitter);
   }
 
   onSitterDeleteClicked(sitter: Sitter) {
     this.sittersActions.deleteSitter(sitter);
-    console.log("someone clicked DELETE this sitter", sitter)
+    // this.apiService.deleteSitter(sitter);
+    console.log("someone clicked DELETE this sitter: ", sitter)
   }
 
 

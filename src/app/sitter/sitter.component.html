@@ -10,6 +10,6 @@
     </p>
 </mat-card-content>
 <mat-card-actions>
-    <button mat-button routerLink="edit-sitter" (click)="onEditClick()">EDIT</button>
+    <button mat-button (click)="onEditClick(sitter._id)">EDIT</button>
     <button mat-button (click)="onDeleteClick()">DELETE</button>
 </mat-card-actions>

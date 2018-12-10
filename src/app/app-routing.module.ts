@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
   { path: "home", component: HomeComponent },
-  { path: "edit-sitter", component: EditSitterComponent},
+  { path: "edit-sitter/:id", component: EditSitterComponent},
 
   { path: '**', component: PageNotFoundComponent },
 ];
