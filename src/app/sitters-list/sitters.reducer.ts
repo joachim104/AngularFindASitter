@@ -44,7 +44,7 @@ export function sittersReducer(state: SittersState = INITIAL_STATE, action: any)
 
         case SittersActions.UPDATE_SITTER:
 
-        
+            
 
         case SittersActions.SET_REGISTER_BABYTYPE:
             // Copies state, and inserts new isBaby value in new state

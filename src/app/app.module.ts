@@ -20,7 +20,6 @@ import { IAppState } from './store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { rootReducer } from './store'; // Added this to get the root reducer
 import { HttpClientModule }    from '@angular/common/http';
-import { FilterSitters } from "./sitters.filter";
 
 import {
   MatButtonModule,
@@ -37,6 +36,7 @@ import { SitterComponent } from './sitter/sitter.component';
 import { SittersActions } from './sitters-list/sitters.actions';
 import { EditSitterComponent } from './edit-sitter/edit-sitter.component';
 import { from } from 'rxjs';
+import { SittersSearchPipe } from './sitters-search.pipe';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,7 @@ import { from } from 'rxjs';
     SittersListComponent,
     SitterComponent,
     EditSitterComponent,
-    FilterSitters
+    SittersSearchPipe
   ],
   imports: [
     BrowserModule,
