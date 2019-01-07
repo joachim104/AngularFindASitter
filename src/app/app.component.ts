@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +11,17 @@ export class AppComponent {
   title: string = 'Find A Sitter';
   isBaby: Boolean = undefined;
   type: String = '';
+  
+  constructor(private authService: AuthService){}
 
-  // Method definition
+  checkLogin() : Boolean {
+    return this.authService.isLoggedIn;
+  };
+
   onClickSitter() : void {
     this.isBaby = false;
-    // console.log("User clicked View Sitter");
   }
 
-  // Method defintion
   onClickBaby() {
     this.isBaby = true;
   }

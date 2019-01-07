@@ -19,7 +19,6 @@ export class AuthService {
       delay(1000),
       tap(val => {
         this.isLoggedIn = true
-        console.log(this.isLoggedIn);
       })
     );
   }

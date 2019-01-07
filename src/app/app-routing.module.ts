@@ -10,10 +10,10 @@ import { FindABabyComponent } from './portal/find-a-baby/find-a-baby.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SittersListComponent } from './sitters-list/sitters-list.component';
 import { EditSitterComponent } from './edit-sitter/edit-sitter.component';
+import { Portal } from '@angular/cdk/portal';
  
 const routes: Routes = [
       
-  
   { path: "portal", component: PortalComponent, canActivate: [AuthGuard], children:
       [
         { path: "findasitter", component: SittersListComponent },
@@ -26,7 +26,6 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: "home", component: HomeComponent },
   { path: "edit-sitter/:id", component: EditSitterComponent},
-
   { path: '**', component: PageNotFoundComponent },
 ];
 
