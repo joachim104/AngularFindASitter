@@ -26,7 +26,7 @@ export class ApiService {
   }
 
   deleteSitter(sitter: Sitter){
-    return this.http.delete(environment.apiUrl + sitter, {responseType: 'text'});
+    return this.http.delete(environment.apiUrl + sitter._id, {responseType: 'text'});
   }
 
   updateSitter(sitter: Sitter){

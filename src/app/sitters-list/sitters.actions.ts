@@ -62,11 +62,10 @@ export class SittersActions {
         console.log("2");
     }
 
-    deleteSitter(sitter: Sitter): void {
+    deleteSitter(sitter: Sitter): boolean {
         console.log("1");
 
         this.apiService.deleteSitter(sitter).subscribe(response => {
-            console.log("3 succes");
             console.log(response);
 
             this.ngRedux.dispatch({
@@ -75,8 +74,10 @@ export class SittersActions {
             })
         }, error => {
             console.log("3 error");
+            return false;
         })
         console.log("2");
+        return true;
     }
 
     //payload indeholder her et sitter objekt

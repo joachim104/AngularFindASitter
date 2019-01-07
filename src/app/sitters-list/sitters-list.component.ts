@@ -17,27 +17,21 @@ export class SittersListComponent implements OnInit {
 
   constructor(private ngRedux: NgRedux<IAppState>, private sittersActions: SittersActions, private apiService: ApiService) { }
 
+  getSllSitters() {
+    this.apiService.getAllSitters().subscribe((responseFromApi: any[]) => {
+      const myData = responseFromApi.filter(x => x.customerId === "js")
+      this.sitters = myData;
+
+    });
+  }
+  
   // når der sker en ændring i store giver store en 
   ngOnInit() {
     this.ngRedux.select(x => x.sitters).subscribe((data) => {
       this.sitters = data.sitters;
     })
     
-    // man skal subsribe til resultatet ellers så kalder den ikke api´et.
-    this.apiService.getAllSitters().subscribe((responseFromApi: any[]) => {
-      const myData = responseFromApi.filter(x => x.customerId === "js")
-
-
-      this.sitters = myData;
-
-    
-
-      // let sitter: Sitter;
-      // var stringArray = JSON.stringify(myData);
-      // var array2 = JSON.parse(myData);
-
-      // this.sitters.push(myData);
-    });
+    this.getSllSitters();
   }
 
   onSitterEditClicked(sitter: Sitter) {
@@ -45,12 +39,14 @@ export class SittersListComponent implements OnInit {
   }
 
   onSitterDeleteClicked(sitter: Sitter) {
-    this.sittersActions.deleteSitter(sitter);
-    // this.apiService.deleteSitter(sitter);
-    console.log("someone clicked DELETE this sitter: ", sitter)
+    //this.sittersActions.deleteSitter(sitter);
+
+    if (this.sittersActions.deleteSitter(sitter) === true) {
+
+      this.getSllSitters();
+    }
+    else {
+      console.log("FATAL ERROR")
+    }
   }
-
-
-
-
 }
