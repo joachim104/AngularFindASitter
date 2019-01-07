@@ -14,18 +14,14 @@
 </div>
 
 <div class="nav-bar-buttons">
-  <button mat-button id="menuHome" routerLink="home">Home</button>
-  <button mat-button id="menuLogin" routerLink="login">Login</button>
-  <button mat-button id="menuRegister" routerLink="register">Register</button>
+  <button mat-button class="menu-item" routerLink="home">Home</button>
+  <button *ngIf="checkLogin() == false" mat-button class="menu-item" routerLink="login">Login</button>
+  <button *ngIf="checkLogin() == false" mat-button class="menu-item" routerLink="register">Register</button>
+  <button mat-button class="menu-item">About</button>
+  <button mat-button class="menu-item">Contact</button>
 </div>
 
 
-
-<!-- <div class="nav-bar-buttons">
-  <button type="button" id="menuHome"class="btn btn-outline-dark" routerLink="home">Home</button>
-  <button type="button" id="menuLogin" class="btn btn-outline-dark" routerLink="login">Login</button>
-  <button type="button" id="menuRegister" class="btn btn-outline-dark" routerLink="register">Register</button>
-</div> -->
 
 
 <router-outlet></router-outlet>

@@ -32,12 +32,8 @@ export class LoginComponent implements OnInit {
         // Navigate based on a certain condition.
         this.router.navigate(['/portal']); // her kan man bruge router-klassen fordi vi har depencies injected router klassen længere op
       });
-
     } else {
       // Punish user for not filling out fields.
     }
-
-    console.log(loginForm);
   }
-
 }

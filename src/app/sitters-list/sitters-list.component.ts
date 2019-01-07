@@ -41,7 +41,7 @@ export class SittersListComponent implements OnInit {
   }
 
   onSitterEditClicked(sitter: Sitter) {
-    console.log("someone clicked EDIT this sitter: ", sitter);
+    // console.log("someone clicked EDIT this sitter: ", sitter);
   }
 
   onSitterDeleteClicked(sitter: Sitter) {
