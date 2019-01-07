@@ -20,7 +20,7 @@ import { IAppState } from './store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { rootReducer } from './store'; // Added this to get the root reducer
 import { HttpClientModule }    from '@angular/common/http';
-import { SittersAgePipe } from './sitters-age.pipe';
+import { FilterSitters } from "./sitters.filter";
 
 import {
   MatButtonModule,
@@ -36,7 +36,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { SitterComponent } from './sitter/sitter.component';
 import { SittersActions } from './sitters-list/sitters.actions';
 import { EditSitterComponent } from './edit-sitter/edit-sitter.component';
-import { pipe } from 'rxjs';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -51,8 +51,7 @@ import { pipe } from 'rxjs';
     SittersListComponent,
     SitterComponent,
     EditSitterComponent,
-    SittersAgePipe
-
+    FilterSitters
   ],
   imports: [
     BrowserModule,

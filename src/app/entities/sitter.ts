@@ -6,14 +6,13 @@ export class Sitter {
 
   firstname: string;
   lastname: string;  
-  age: number; // We learn about js dates...
-  gender: string; // Female, Male, Other...
+  age: number;
+  gender: string;
   hourlyWage: number;
   address: string;
   zipCode: string;
   city: string;
-
-  // her skal jeg tilføje et array af ratings.
+  // rating: Rating[];
 
 }
 

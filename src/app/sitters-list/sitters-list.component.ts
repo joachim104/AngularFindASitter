@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { TempDataService } from '../temp-data.service';
 import { Sitter } from '../entities/sitter';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from '../store';
 import { SittersActions } from './sitters.actions';
 import { ApiService } from '../services/api.service';
+import { Location } from "@angular/common";
 
 @Component({
   selector: 'app-sitters-list',
@@ -15,7 +15,7 @@ export class SittersListComponent implements OnInit {
 
   sitters: Sitter[];
 
-  constructor(private ngRedux: NgRedux<IAppState>, private sittersActions: SittersActions, private apiService: ApiService) { }
+  constructor(private ngRedux: NgRedux<IAppState>, private sittersActions: SittersActions, private apiService: ApiService, private location: Location) { }
 
   getSllSitters() {
     this.apiService.getAllSitters().subscribe((responseFromApi: any[]) => {
@@ -33,6 +33,7 @@ export class SittersListComponent implements OnInit {
     
     this.getSllSitters();
   }
+
 
   onSitterEditClicked(sitter: Sitter) {
     // console.log("someone clicked EDIT this sitter: ", sitter);

@@ -11,10 +11,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   
   private baseURL: string = environment.apiUrl;
-
-  // getSitter() {
-  //   return this.http.get(this.baseURL + )
-  // }
   
   getAllSitters() {
     return this.http.get(this.baseURL);
