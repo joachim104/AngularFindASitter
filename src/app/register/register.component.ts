@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
     }
     else {
       // Her kalder vi addBaby() metoden og giver formen med som parameter og der bliver derfor oprettet et baby objekt.
-      this.tempData.addBaby(this.registerBabyForm.value);
+      // this.tempData.addBaby(this.registerBabyForm.value);
       // herefter navigere 
       this.router.navigate(["/login"]);
     }
