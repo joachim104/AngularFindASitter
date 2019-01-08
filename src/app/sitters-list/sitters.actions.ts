@@ -82,9 +82,16 @@ export class SittersActions {
 
     //payload indeholder her et sitter objekt
     updateSitter(sitter: Sitter): void {
-        this.ngRedux.dispatch({
+        
+        this.apiService.updateSitter(sitter).subscribe(response => {
+            this.ngRedux.dispatch({
             type: SittersActions.UPDATE_SITTER,
-            payload: sitter
-        })
+                payload: sitter
+            })
+        }, error => {
+            console.log("4 error");
+            return false;
+        });
+        
     }
 }

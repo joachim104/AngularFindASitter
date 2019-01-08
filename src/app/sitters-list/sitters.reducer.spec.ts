@@ -4,10 +4,6 @@ import * as types from './sitters.actions';
 
 describe('users reducer', () => {
 
-  it('should return the initial state', () => {
-    expect(sittersReducer(undefined, {})).toEqual({isBaby: undefined});
-  });
-
 it('Toggle isBaby or sitter', () => {
   // Initial state
   let startState = {isBaby: undefined, sitters: []};

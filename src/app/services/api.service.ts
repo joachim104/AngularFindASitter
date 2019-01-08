@@ -26,6 +26,6 @@ export class ApiService {
   }
 
   updateSitter(sitter: Sitter){
-    return this.http.put(environment.apiUrl + sitter, {responseType: 'text'});
+    return this.http.put(environment.apiUrl+sitter._id, sitter, {responseType: 'text'});
   }
 }
