@@ -8,7 +8,7 @@ import { AuthGuard } from './auth/auth.guard';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = 'Find A Sitter';
+  title: string = 'Find A Sitter!';
   isBaby: Boolean = undefined;
   type: String = '';
   

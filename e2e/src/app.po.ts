@@ -1,6 +1,8 @@
 import { browser, by, element } from 'protractor';
 
 export class AppPage {
+  
+
   navigateTo() {
     return browser.get('/');
   }
@@ -10,12 +12,18 @@ export class AppPage {
   }
 
   login(): void {
-
-    element(by.id("username")).sendKeys("myusername");
-    browser.sleep(1500);
+    element(by.id("username")).sendKeys("MyUserName");
+    // browser.sleep(1000);
     element(by.id("password")).sendKeys("mypassword");
-    browser.sleep(1500);
-    element(by.id("btnLogin")).click(); // der er en fejl her!! kan ikke finde btnLogin
-
+    // browser.sleep(1000);
+    element(by.className("btnLogin")).click();
   }
+
+  navigateToLogin(){
+    return browser.get("/login")
+  }
+
+  
+
+
 }

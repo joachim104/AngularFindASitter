@@ -21,7 +21,6 @@ export class SittersListComponent implements OnInit {
     this.apiService.getAllSitters().subscribe((responseFromApi: any[]) => {
       const myData = responseFromApi.filter(x => x.customerId === "js")
       this.sitters = myData;
-
     });
   }
   
@@ -29,8 +28,7 @@ export class SittersListComponent implements OnInit {
   ngOnInit() {
     this.ngRedux.select(x => x.sitters).subscribe((data) => {
       this.sitters = data.sitters;
-    })
-    
+    }) 
     this.getSllSitters();
   }
 
@@ -43,7 +41,6 @@ export class SittersListComponent implements OnInit {
     //this.sittersActions.deleteSitter(sitter);
 
     if (this.sittersActions.deleteSitter(sitter) === true) {
-
       this.getSllSitters();
     }
     else {

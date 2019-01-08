@@ -16,9 +16,10 @@
 <div class="nav-bar-buttons">
   <button mat-button class="menu-item" routerLink="home">Home</button>
   <button *ngIf="checkLogin() == false" mat-button class="menu-item" routerLink="login">Login</button>
-  <button *ngIf="checkLogin() == false" mat-button class="menu-item" routerLink="register">Register</button>
+  <button id="registerBtn" *ngIf="checkLogin() == false" mat-button class="menu-item" routerLink="register">Register</button>
+  <button id="portal" *ngIf="checkLogin() == true" mat-button class="menu-item" routerLink="portal">Portal</button>  
   <button mat-button class="menu-item">About</button>
-  <button mat-button class="menu-item">Contact</button>
+  <button mat-button class="menu-item" routerLink="contact">Contact</button>
 </div>
 
 

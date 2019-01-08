@@ -27,6 +27,7 @@ it('should delete with valid id', () => {
     // Initial state
     let startState = {isBaby: undefined, sitters: []};
 
+
     let endState =  [
         {_id:'1' , username: "azat", password: "secret", firstname: " Azat", lastname: "Bajan", gender: "male", age: 1995, hourlyWage: 1337, address: "some", zipCode: "2600", city: "Glostrup" },
     
