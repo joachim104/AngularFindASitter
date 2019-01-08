@@ -51,6 +51,10 @@
         <mat-form-field class="example-full-width">
           <input type="password" matInput placeholder="Password" id="password" formControlName="password" required>
         </mat-form-field>
+        <div class="error" *ngIf="confirmPassword == false && registerSitterForm.controls.password.touched">
+          Password doesn't match
+        </div>
+        <br>
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Firstname" id="firstname" formControlName="firstname" required>
         </mat-form-field>

@@ -13,13 +13,10 @@ export class SittersState {
 // should be here.
 export class IAppState {
     sitters?: SittersState;
-    // babies? : BabiesState; //example
-    // networking?: NetworkState;
+
 }
 // her bruger vi en metode der hedder combineReducers som kombinerer alle de forskellige reducers vi har.
 // så fx SittersReducer, BabyReducer osv.
 export const rootReducer = combineReducers<IAppState>({
-    sitters: sittersReducer,
-
-    // router: routerReducer
+    sitters: sittersReducer
 });

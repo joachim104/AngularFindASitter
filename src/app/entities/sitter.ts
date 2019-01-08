@@ -12,12 +12,6 @@ export class Sitter {
   address: string;
   zipCode: string;
   city: string;
-  // rating: Rating[];
+  isBaby?: boolean;
 
-}
-
-export class Rating {
-  rating: number; // 1 - 5
-  description?: String;
-  babyId: String; // the baby who rated the sitter
 }

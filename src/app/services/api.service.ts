@@ -12,7 +12,7 @@ export class ApiService {
   
   private baseURL: string = environment.apiUrl;
   
-  getAllSitters() {
+  public getAllSitters() {
     return this.http.get(this.baseURL);
   }
 

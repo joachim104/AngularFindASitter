@@ -29,9 +29,6 @@ export class SitterComponent implements OnInit {
     // Handle logic here, or pass event to parent component
     this.sitterEditClicked.emit(this.sitter);
     this.router.navigate(["/edit-sitter/" + this.sitter._id]);
-    console.log("USERNAME: ", this.sitter.username);
-    
-
   }
   onDeleteClick(sitter: Sitter) {
     this.sitterDeleteClicked.emit(this.sitter);

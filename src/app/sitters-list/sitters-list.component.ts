@@ -17,20 +17,24 @@ export class SittersListComponent implements OnInit {
 
   constructor(private ngRedux: NgRedux<IAppState>, private sittersActions: SittersActions, private apiService: ApiService, private location: Location) { }
 
-  getSllSitters() {
+  // når der sker en ændring i store giver store en 
+  ngOnInit() {
+
+    this.ngRedux.select(x => x.sitters).subscribe((state) => {
+      this.sitters = state.sitters;
+    })
+
+
+    this.getAllSitters();
+  }
+
+  getAllSitters() {
     this.apiService.getAllSitters().subscribe((responseFromApi: any[]) => {
       const myData = responseFromApi.filter(x => x.customerId === "js")
       this.sitters = myData;
     });
   }
-  
-  // når der sker en ændring i store giver store en 
-  ngOnInit() {
-    this.ngRedux.select(x => x.sitters).subscribe((data) => {
-      this.sitters = data.sitters;
-    }) 
-    this.getSllSitters();
-  }
+
 
 
   onSitterEditClicked(sitter: Sitter) {
@@ -38,10 +42,8 @@ export class SittersListComponent implements OnInit {
   }
 
   onSitterDeleteClicked(sitter: Sitter) {
-    //this.sittersActions.deleteSitter(sitter);
-
     if (this.sittersActions.deleteSitter(sitter) === true) {
-      this.getSllSitters();
+      this.getAllSitters();
     }
     else {
       console.log("FATAL ERROR")

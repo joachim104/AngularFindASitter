@@ -15,6 +15,7 @@ export class SittersActions {
         private ngRedux: NgRedux<IAppState>,
         private apiService: ApiService) { }
 
+
     // This gives a strongly typed way to call an action. this is to avoid magic strings with typos
     static CREATE_SITTER: string = 'CREATE_SITTER';
     static DELETE_SITTER: string = 'DELETE_SITTER';
@@ -36,10 +37,7 @@ export class SittersActions {
     }
 
     readAllSitters(): void {
-        console.log("1");
         this.apiService.getAllSitters().subscribe(response => {
-            console.log("3 succes");
-            console.log(response);
             this.ngRedux.dispatch({
                 type: SittersActions.READ_SITTER,
                 payload: response
@@ -52,6 +50,7 @@ export class SittersActions {
         console.log("3 succes");
         console.log(response);
 
+        // dispatch method calls the reducer
         this.ngRedux.dispatch({
             type: SittersActions.CREATE_SITTER,
             payload: sitter

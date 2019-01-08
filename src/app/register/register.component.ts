@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators, FormControl } from '@angular/forms';
-import { TempDataService } from '../temp-data.service';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { Sitter } from '../entities/sitter';
 import { Baby } from '../entities/baby';
-import { SittersActions } from '../sitters-list/sitters.actions'; 
+import { SittersActions } from '../sitters-list/sitters.actions';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState, SittersState } from '../store';
+import { group } from '@angular/animations';
 
 @Component({
   selector: 'app-register',
@@ -22,10 +22,13 @@ export class RegisterComponent implements OnInit {
   registerSitterForm: any;
   registrant: string;
   isBaby: boolean;
+  confirmPassword: boolean;
 
-  constructor(private fb: FormBuilder, private router: Router, private tempData: TempDataService, private sittersActions: SittersActions, private ngRedux: NgRedux<IAppState>) { }
+  constructor(private fb: FormBuilder, private router: Router, private sittersActions: SittersActions, private ngRedux: NgRedux<IAppState>) { }
 
   ngOnInit() {
+
+    this.confirmPassword = true;
 
     // Here the component subscribes to the sitters state.
     // When someone changes the sitters state, this function is 
@@ -57,8 +60,46 @@ export class RegisterComponent implements OnInit {
       hourlyWage: [''],
       zipCode: [''],
       city: [''],
-    });
+    }, { validator: this.passwordContainsNumbers('password') });
   }
+
+
+  passwordContainsNumbers(password: string) {
+    return (group: FormGroup) => {
+      let passwordInput = group.controls[password]
+
+      const hasNumber: boolean = /\d/.test(passwordInput.value);
+
+      console.log(this.confirmPassword);
+
+      if (hasNumber === true) {
+        this.confirmPassword = true;
+        return passwordInput.setErrors(null);
+      }
+      else {
+        this.confirmPassword = false;
+        return passwordInput.setErrors({notEquivalent: true})
+      }
+    }
+  };
+
+  // checkIfMatchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
+  //   return (group: FormGroup) => {
+  //     let passwordInput = group.controls[passwordKey];
+  //     let passwordConfirmationInput = group.controls[passwordConfirmationKey];
+
+  //     //If inputs is not equal set errors to true
+  //     if (passwordInput.value !== passwordConfirmationInput.value) {
+  //       this.confirmPass = false;
+  //       return passwordConfirmationInput.setErrors({notEquivalent: true})
+  //     }
+  //     //If inputs is equal clear errors
+  //     else {     
+  //       this.confirmPass = true;
+  //       return passwordConfirmationInput.setErrors(null);         
+  //     }
+  //   }
+  // }
 
   onSubmit() {
 
