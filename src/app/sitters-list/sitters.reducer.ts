@@ -2,9 +2,8 @@ import { SittersActions } from './sitters.actions';
 import { SittersState } from './../store';
 import { tassign } from 'tassign';
 
-const INITIAL_STATE: SittersState = { isBaby: undefined, sitters: [
-
-]};
+const INITIAL_STATE: SittersState = { isBaby: undefined, sitters: []
+};
 
 // My reducer functions are responsible for changing state, by copying and 
 // changing the copy, since state is immutable.
@@ -44,6 +43,14 @@ export function sittersReducer(state: SittersState = INITIAL_STATE, action: any)
 
         case SittersActions.UPDATE_SITTER:
 
+        const updatedState = state.sitters.map(sitter => {
+          if(sitter._id === action._id){
+            return { ...sitter, ...action.payload }
+          } else {
+          return sitter
+          }
+        })
+        return tassign(state, {sitters: updatedState})
             
 
         case SittersActions.SET_REGISTER_BABYTYPE:

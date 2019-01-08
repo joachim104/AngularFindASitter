@@ -1,5 +1,5 @@
 import { routerReducer } from '@angular-redux/router';
-import { combineReducers } from 'redux';
+import { combineReducers, compose } from 'redux';
 import { sittersReducer } from './sitters-list/sitters.reducer';
 import { Sitter } from './entities/sitter';
 
