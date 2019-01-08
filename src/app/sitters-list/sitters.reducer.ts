@@ -2,13 +2,7 @@ import { SittersActions } from './sitters.actions';
 import { SittersState } from './../store';
 import { tassign } from 'tassign';
 
-<<<<<<< HEAD
-const INITIAL_STATE: SittersState = {
-    isBaby: undefined,
-    sitters: []
-=======
 const INITIAL_STATE: SittersState = { isBaby: undefined, sitters: []
->>>>>>> c6fccee000dc9988c618078b055d064e20c88afd
 };
 
 // My reducer functions are responsible for changing state, by copying and 
@@ -38,9 +32,6 @@ export function sittersReducer(state: SittersState = INITIAL_STATE, action: any)
 
         case SittersActions.UPDATE_SITTER:
 
-<<<<<<< HEAD
-
-=======
         const updatedState = state.sitters.map(sitter => {
           if(sitter._id === action._id){
             return { ...sitter, ...action.payload }
@@ -50,7 +41,6 @@ export function sittersReducer(state: SittersState = INITIAL_STATE, action: any)
         })
         return tassign(state, {sitters: updatedState})
             
->>>>>>> c6fccee000dc9988c618078b055d064e20c88afd
 
         case SittersActions.SET_REGISTER_BABYTYPE:
             // Copies state, and inserts new isBaby value in new state
